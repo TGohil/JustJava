@@ -44,24 +44,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //method is called when the order button is tapped
+    //TODO-ask about View view
     public void submitOrder(View view) {
-        displayPrice(quantity * price);
+        String priceMessage = "Total: £" + price*quantity;
+        priceMessage = priceMessage + "\nThanks!";
+        displayMessage(priceMessage);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
     private void display(int number) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        TextView quantityTextView = findViewById(R.id.quantity_text_view);
         //searching for the ID quantity text view
         quantityTextView.setText("" + number);
     }
 
-    /**
-     * This method displays the given price on the screen.
-     */
+    //TODO - ask about this method
     private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        TextView priceTextView = findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        //TODO - ask about the below line of code
+        TextView priceTextView = findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 }
